@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -8,4 +8,4 @@ export default axios.create({
   params: {
     api_key: import.meta.env.VITE_API_KEY,
   },
-});
+})

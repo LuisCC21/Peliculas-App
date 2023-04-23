@@ -1,63 +1,63 @@
-import { createContext, useEffect, useState } from 'react';
-import axios from '../helpers/axiosHelper';
+import { createContext, useEffect, useState } from 'react'
+import axios from '../helpers/axiosHelper'
 
-const PeliculaContext = createContext();
+const PeliculaContext = createContext()
 
 export const PeliculaProvider = ({ children }) => {
-  const [categorias, setCategorias] = useState([]);
-  const [pelisByCategoria, setPelisByCategoria] = useState([]);
-  const [pelisByBusqueda, setPelisByBusqueda] = useState([]);
-  const [cargando, setCargando] = useState(false);
-  const [palabra, setPalabra] = useState('');
+  const [categorias, setCategorias] = useState([])
+  const [pelisByCategoria, setPelisByCategoria] = useState([])
+  const [pelisByBusqueda, setPelisByBusqueda] = useState([])
+  const [cargando, setCargando] = useState(false)
+  const [palabra, setPalabra] = useState('')
 
   const obtenerCategorias = async () => {
     try {
-      const { data } = await axios('/genre/movie/list?language=es-ES');
-      setCategorias(data.genres);
+      const { data } = await axios('/genre/movie/list?language=es-ES')
+      setCategorias(data.genres)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   useEffect(() => {
-    obtenerCategorias();
-  }, []);
+    obtenerCategorias()
+  }, [])
 
   const obtenerPeliculasByCategoria = async (categoria) => {
-    setCargando(true);
+    setCargando(true)
     try {
-      if (categoria === '') return setPelisByCategoria([]);
+      if (categoria === '') return setPelisByCategoria([])
       const { data } = await axios(
         `/discover/movie?with_genres=${categoria}&language=es-ES`
-      );
-      setPelisByCategoria(data.results);
-      setPelisByBusqueda([]);
+      )
+      setPelisByCategoria(data.results)
+      setPelisByBusqueda([])
 
       if (pelisByCategoria.length === 0) {
-        setPalabra('');
+        setPalabra('')
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     } finally {
-      setCargando(false);
+      setCargando(false)
     }
-  };
+  }
 
   const obtenerPeliculasByBusqueda = async (query) => {
-    setPalabra(query);
-    setCargando(true);
+    setPalabra(query)
+    setCargando(true)
     try {
       const { data } = await axios(
         `/search/movie?language=es-ES&page=1&include_adult=false&query=${query}`
-      );
-      setPelisByBusqueda(data.results);
-      setPelisByCategoria([]);
+      )
+      setPelisByBusqueda(data.results)
+      setPelisByCategoria([])
     } catch (error) {
-      console.log(error);
+      console.log(error)
     } finally {
-      setCargando(false);
+      setCargando(false)
     }
-  };
+  }
 
   return (
     <PeliculaContext.Provider
@@ -73,7 +73,7 @@ export const PeliculaProvider = ({ children }) => {
     >
       {children}
     </PeliculaContext.Provider>
-  );
-};
+  )
+}
 
-export default PeliculaContext;
+export default PeliculaContext

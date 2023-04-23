@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import leftArrow from '../assets/left-arrow-backup-2-svgrepo-com.svg';
-import rightArrow from '../assets/right-arrow-backup-2-svgrepo-com.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import leftArrow from '../assets/left-arrow-backup-2-svgrepo-com.svg'
+import rightArrow from '../assets/right-arrow-backup-2-svgrepo-com.svg'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Slider = ({ recomend }) => {
-  const [imgActual, setImgActual] = useState(0);
-  const navigate = useNavigate();
-  const arrayFiltrado = recomend.filter((pelis) => pelis.poster_path);
-  const cantidad = arrayFiltrado.length;
+  const [imgActual, setImgActual] = useState(0)
+  const navigate = useNavigate()
+  const arrayFiltrado = recomend.filter((pelis) => pelis.poster_path)
+  const cantidad = arrayFiltrado.length
 
   const siguienteImg = () => {
-    setImgActual(imgActual === cantidad - 1 ? 0 : imgActual + 1);
-  };
+    setImgActual(imgActual === cantidad - 1 ? 0 : imgActual + 1)
+  }
   const anterirorImg = () => {
-    setImgActual(imgActual === 0 ? cantidad - 1 : imgActual - 1);
-  };
+    setImgActual(imgActual === 0 ? cantidad - 1 : imgActual - 1)
+  }
 
-  if (!Array.isArray(recomend) || cantidad === 0) return;
+  if (!Array.isArray(recomend) || cantidad === 0) return
   return (
     <div className='grid-slider'>
       <button className='conteiner-slider__btnL' onClick={anterirorImg}>
@@ -55,5 +55,5 @@ export const Slider = ({ recomend }) => {
         <img src={rightArrow} alt='right arrow' width={30} />
       </button>
     </div>
-  );
-};
+  )
+}

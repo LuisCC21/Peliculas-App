@@ -1,18 +1,18 @@
-import { Header } from '../components/Header';
-import { MostrarPelis } from '../components/MostrarPelis';
-import { Spinner } from '../components/Spinner';
+import { Header } from '../components/Header'
+import { MostrarPelis } from '../components/MostrarPelis'
+import { Spinner } from '../components/Spinner'
 
-import { usePeliculas } from '../hooks/usePeliculas';
+import { usePeliculas } from '../hooks/usePeliculas'
 
 function App() {
-  const { cargando } = usePeliculas();
+  const { cargando } = usePeliculas()
 
   return (
     <>
       <Header />
       {cargando ? <Spinner /> : <MostrarPelis />}
     </>
-  );
+  )
 }
 
-export default App;
+export default App

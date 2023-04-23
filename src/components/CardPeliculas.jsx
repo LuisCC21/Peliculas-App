@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 export const CardPeliculas = ({ peli }) => {
-  const navigate = useNavigate();
-  const { id, original_title, overview, original_language, poster_path } = peli;
+  const navigate = useNavigate()
+  const { id, original_title, overview, original_language, poster_path } = peli
 
   return (
     <>
@@ -44,5 +44,5 @@ export const CardPeliculas = ({ peli }) => {
         <></>
       )}
     </>
-  );
-};
+  )
+}
