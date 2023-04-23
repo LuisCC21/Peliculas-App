@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build-and-docs": "react-scripts build && node create-docs.js",
+    
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
