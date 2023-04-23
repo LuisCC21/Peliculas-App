@@ -1,13 +1,13 @@
 {
-  "homepage": "https://LuisCC21.github.io/Peliculas-App",
+  "homepage": ".",
   "name": "peliculas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
- 
+    "build-and-docs": "react-scripts build && node create-docs.js",
     "dev": "vite",
-    "build": "react-scripts build && rm -rf docs && mv build docs",
+    "build": "vite build",
     "preview": "vite preview"
     
   },
