@@ -14,7 +14,7 @@ export const loader = async ({ params }) => {
       peticionReview,
       peticionRecomends,
     ])
-    console.log(dataReview, dataRecomends)
+
     return [dataReview, dataRecomends]
   } catch (error) {
     console.log(error)
