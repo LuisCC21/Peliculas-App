@@ -444,7 +444,7 @@ display: inline;
 
 .heading-recomend{
 text-align: center;
-color: blue;
+color: #363636
 }
 @media (min-width: 768px){
   .heading-recomend{
@@ -572,6 +572,7 @@ transition: opacity 0.5s ease-in-out;
 .conteiner-slider__btnL:hover,
 .conteiner-slider__btnR:hover{
  opacity: 0.6;
+ cursor: pointer;
 
 }
 /* Slider FIN */
